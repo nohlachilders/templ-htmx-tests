@@ -1,0 +1,29 @@
+package views
+
+// header with htmx cdn
+templ Header() {
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Application</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+</head>
+}
+
+templ CounterResults(count int) {
+<p><i>current count (since last server boot, auto updates)</i></p>
+<p>{ count }</p>
+}
+
+templ Counter() {
+<div class="">
+    <button class="" hx-get="/count" hx-target=".counter-box">
+        <p class="">Count!</p>
+    </button>
+    <div class="counter-box" hx-get="/getcount" hx-trigger="load, every 3s">
+        <i class="text-light">loading...</i>
+    </div>
+</div>
+}
