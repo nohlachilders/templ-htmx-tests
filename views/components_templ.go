@@ -101,7 +101,7 @@ func Counter() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"\"><button class=\"\" hx-get=\"/count\" hx-target=\".counter-box\"><p class=\"\">Count!</p></button><div class=\"counter-box\" hx-get=\"/getcount\" hx-trigger=\"load, every 3s\"><i class=\"text-light\">loading...</i></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"\"><button class=\"\" id=\"count-button\" hx-get=\"/count\" hx-target=\".counter-box\" onClick=\"playSplort()\"><audio src=\"/static/splort.wav\"></audio><p class=\"\">Count!</p></button><script>\n        var splort = document.getElementById(\"count-button\").children[0];\n        splort.pause();\n        function playSplort() {\n            splort.currentTime = 0;\n            splort.play();\n        }\n    </script><div class=\"counter-box\" hx-get=\"/getcount\" hx-trigger=\"load, every 3s\"><i class=\"text-light\">loading...</i></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -19,9 +19,18 @@ templ CounterResults(count int) {
 
 templ Counter() {
 <div class="">
-    <button class="" hx-get="/count" hx-target=".counter-box">
+    <button class="" id="count-button" hx-get="/count" hx-target=".counter-box" onClick="playSplort()">
+        <audio src="/static/splort.wav"></audio>
         <p class="">Count!</p>
     </button>
+    <script>
+        var splort = document.getElementById("count-button").children[0];
+        splort.pause();
+        function playSplort() {
+            splort.currentTime = 0;
+            splort.play();
+        }
+    </script>
     <div class="counter-box" hx-get="/getcount" hx-trigger="load, every 3s">
         <i class="text-light">loading...</i>
     </div>
